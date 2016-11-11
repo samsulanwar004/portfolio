@@ -11,6 +11,7 @@
 |
  */
 
+/*Pages Web*/
 Route::get('/', [
     'uses' => 'PagesController@getHome',
     'as'   => 'home',
@@ -50,3 +51,12 @@ Route::post('/sendmail', [
     'uses' => 'PagesController@postContactMail',
     'as'   => 'sendmail',
 ]);
+
+/*Pages Admin */
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/home', [
+        'uses' => 'AdminController@getHome',
+        'as' => 'home'
+    ]);
+});
