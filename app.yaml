@@ -1,17 +1,15 @@
-runtime: php55
-api_version: 1
+runtime: php
+env: flex
 
-handlers:
-- url: /public/index.php
-  script: index.php
+runtime_config:
+  document_root: public
 
-- url: /public/index\.php
-  script: index.php
+# Ensure we skip ".env", which is only for local development
+skip_files:
+  - .env
 
-- url: /public/assets
-  static_dir: assets
-
-- url: /(.*\.(gif|png|jpg))$
-  static_files: static/\1
-  upload: static/.*\.(gif|png|jpg)$
-
+env_variables:
+  # Put production environment variables here.
+  APP_LOG: errorlog
+  APP_KEY: YOUR_APP_KEY
+  STORAGE_DIR: /tmp
