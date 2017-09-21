@@ -1,0 +1,17 @@
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /public/index.php
+  script: index.php
+
+- url: /public/index\.php
+  script: index.php
+
+- url: /public/assets
+  static_dir: assets
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
+
