@@ -1,14 +1,13 @@
+application: portofolio
+version: 1
 runtime: php55
+api_version: 1
 
-runtime_config:
-  document_root: public
+handlers:
 
-# Ensure we skip ".env", which is only for local development
-skip_files:
-  - .env
+- url: /favicon\.ico
+  static_files: public/favicon.ico
+  upload: public/favicon\.ico
 
-env_variables:
-  # Put production environment variables here.
-  APP_LOG: errorlog
-  APP_KEY: lMVTgOUknjMGoXGpWpV5j/qIOHDVLhpaMmuGwsA5x1w=
-  STORAGE_DIR: /tmp
+- url: /.*
+  script: public/index.php
