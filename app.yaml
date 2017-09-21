@@ -1,5 +1,4 @@
 runtime: php55
-env: flex
 
 runtime_config:
   document_root: public
